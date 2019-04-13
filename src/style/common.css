@@ -1,0 +1,43 @@
+.f-label-template .el-input.is-disabled .el-input__inner {
+    cursor: move;
+}
+
+.f-label-template .el-textarea.is-disabled .el-textarea__inner {
+    cursor: move;
+}
+
+.f-label-template .el-select .el-input.is-disabled .el-input__inner {
+    cursor: move;
+}
+
+.f-label-template .el-input.is-disabled .el-input__icon {
+    cursor: move;
+}
+
+.f-label-template .el-input-number.is-disabled .el-input-number__decrease:hover, .f-label-template .el-input-number.is-disabled .el-input-number__increase:hover {
+    cursor: move;
+}
+
+.f-label-template .el-switch.is-disabled .el-switch__core, .f-label-template .el-switch.is-disabled .el-switch__label {
+    cursor: move;
+}
+
+.f-label-template .el-slider__runway.disabled .el-slider__button-wrapper.dragging, .f-label-template .el-slider__runway.disabled .el-slider__button-wrapper.hover, .f-label-template .el-slider__runway.disabled .el-slider__button-wrapper:hover {
+    cursor: move;
+}
+
+.f-label-template .el-slider__runway.disabled .el-slider__button.dragging, .f-label-template .el-slider__runway.disabled .el-slider__button.hover, .f-label-template .el-slider__runway.disabled .el-slider__button:hover {
+    cursor: move;
+}
+
+.f-label-template .el-checkbox__input, .f-label-template .el-checkbox {
+    cursor: move;
+}
+.f-label-template .el-slider__runway.disabled {
+    cursor: move;
+}
+
+
+.f-label-template .el-rate {
+    margin-top: 7px;
+}
