@@ -84,6 +84,10 @@
             <div class="form-config-right" id="FormRight" :style="{width:'450px'}">
                 <div v-if="labelEditChange">
                     <div v-if="currentLabelData.label_type===LabelType.control">
+                        <div class="form-config-right-content-btn">
+                            <el-button type="danger" v-on:click="removeLabel" size="mini" circle title="删除"><i class="iconfont icon-huishouzhan"></i></el-button>
+                            <el-button type="primary" v-on:click="saveLabelConfig" size="mini" circle title="保存"><i class="iconfont icon--baocun"></i></el-button>
+                        </div>
                         <el-tabs v-model="tabActiveName" v-if="currentLabelData.label_config.control_config.control_type==='input_base'">
                             <el-tab-pane label="常规" name="normal">
                                 <el-form :ref="'Form'+currentLabelData.label_id" :model="currentLabelData" label-width="120px">
@@ -119,7 +123,9 @@
                                     </el-form-item>
                                 </el-form>
                             </el-tab-pane>
-                            <el-tab-pane label="验证" name="validator"></el-tab-pane>
+                            <el-tab-pane label="验证" name="validator">
+
+                            </el-tab-pane>
                             <el-tab-pane label="数据源" name="data"></el-tab-pane>
                             <el-tab-pane label="关联" name="relate">
 
@@ -312,7 +318,7 @@
                                             <el-col :span="8">
                                                 <el-select v-model="param.parameter_value" clearable filterable placeholder="请选择">
                                                     <el-option v-for="(label,index) in setLableList" :key="index"
-                                                               :label="label.label_name_chs" :value="label.label_id+''"></el-option>
+                                                               :label="label.label_name_chs" :value="label.label_name_chs+''"></el-option>
                                                 </el-select>
                                             </el-col>
                                             <el-col :span="2" style="text-align:center;height:40px;line-height:40px;">
@@ -956,6 +962,11 @@
                         </el-tabs>
                     </div>
                     <div v-else-if="currentLabelData.label_type===LabelType.variable">
+                        <div class="form-config-right-content-btn">
+                            <el-button type="danger" v-on:click="removeLabel" size="mini" circle title="删除"><i class="iconfont icon-huishouzhan"></i></el-button>
+                            <el-button type="primary" v-on:click="saveLabelConfig" size="mini" circle title="保存"><i class="iconfont icon--baocun"></i></el-button>
+                        </div>
+                        <div class="form-config-right-edit-top-border"></div>
                         <el-form :ref="'Form'+currentLabelData.label_id" :model="currentLabelData" label-width="120px">
                             <el-form-item label="标签中文名" prop="label_name_chs" :rules="[{ required: true, message: '请输入标签中文名', trigger: 'blur' }]">
                                 <el-input v-model="currentLabelData.label_name_chs" placeholder="请输入标签中文名"></el-input>
@@ -1064,16 +1075,17 @@
                         </el-dialog>
                     </div>
                     <div v-else-if="currentLabelData.label_type===LabelType.condition">
-
+                        <div class="form-config-right-content-btn">
+                            <el-button type="danger" v-on:click="removeLabel" size="mini" circle title="删除"><i class="iconfont icon-huishouzhan"></i></el-button>
+                            <el-button type="primary" v-on:click="saveLabelConfig" size="mini" circle title="保存"><i class="iconfont icon--baocun"></i></el-button>
+                        </div>
+                        <div class="form-config-right-edit-top-border"></div>
                     </div>
                     <div v-else style="padding:150px 0;text-align:center;color:#808080;">
                         请选择一个标签进行编辑
                     </div>
                 </div>
-                <div v-if="labelEditChange" class="form-config-right-content-btn">
-                    <el-button type="danger" v-on:click="removeLabel">删除组件</el-button>
-                    <el-button type="primary" v-on:click="saveLabelConfig">保存组件</el-button>
-                </div>
+
 
             </div>
         </div>
@@ -1750,10 +1762,15 @@
 
     .form-config-right-content-btn {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        top: 0;
+        right: 0;
         text-align: right;
+        z-index: 999;
+    }
+    .form-config-right-edit-top-border{
+        height: 38px;
+        margin: 0 0 15px;
+        border-bottom: 2px solid #e4e7ed;
     }
     .f-label-config-data-type {
         margin:20px 5px;
